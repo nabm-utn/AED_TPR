@@ -4,8 +4,8 @@ class Musica:
 
     def __init__(self, titulo, genero, idioma):
         self.titulo = titulo
-        self.genero = genero
-        self.idioma = idioma
+        self.genero = int(genero)
+        self.idioma = int(idioma)
 
     def __str__(self):
-        return "{}  ({} - {})".format(self.titulo, self._generos[self.genero], self._idiomas[self.idioma])
+        return "{:^50} ({:^11} - {:^9})".format(self.titulo, self._generos[self.genero], self._idiomas[self.idioma])

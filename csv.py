@@ -6,25 +6,25 @@ Luis Miguel, Morrisey, Carla Bruni, Milton Nascimento, Eros Ramazzoti, Sigur Ros
 
 
 titulos = [
-    "Ahora Te Puedes Marchar", "Cuando Calienta El Sol", "Fria Como El Viento",
+    ["Ahora Te Puedes Marchar", "Cuando Calienta El Sol", "Fria Como El Viento",
     "Un Hombre Busca Una Mujer", "La Incondicional", "Entrégate", "Tengo Todo Excepto A Ti",
     "Será Que No Me Amas", "Inolvidable", "No Sé Tú", "América, América", "Hasta Que Me Olvides",
-    "Suave", "El Día Que Me Quieras", "Somos Novios", "La media vuelta",
+    "Suave", "El Día Que Me Quieras", "Somos Novios", "La media vuelta"],
 
-    "The Last of the Famous International Playboys", "You're Gonna Need Someone on Your Side",
+    ["The Last of the Famous International Playboys", "You're Gonna Need Someone on Your Side",
     "The More You Ignore Me, the Closer I Get", "Glamorous Glue", "Girl Least Likely To", "Suedehead",
     "Tomorrow", "Boxers", "My Love Life", "Break Up the Family", "I've Changed My Plea to Guilty",
     "Such a Little Thing Makes Such a Big Difference", "Ouija Board, Ouija Board", "Interesting Drug",
-    "November Spawned a Monster", "Everyday Is Like Sunday", "Interlude", "Moonriver",
+    "November Spawned a Monster", "Everyday Is Like Sunday", "Interlude", "Moonriver"],
 
-    "Quelqu'un m'a dit", "Raphaël", "Tout le monde", "La noyée", "Le toi du moi", "Le ciel dans une chambre",
-    "J'en connais", "Le plus beau du quartier", "Chanson triste", "L'excessive", "L'amour", "La dernière minute",
+    ["Quelqu'un m'a dit", "Raphaël", "Tout le monde", "La noyée", "Le toi du moi", "Le ciel dans une chambre",
+    "J'en connais", "Le plus beau du quartier", "Chanson triste", "L'excessive", "L'amour", "La dernière minute"],
 
-    "Maria Maria", "Cozinha", "Pilar (do Pila)", "Trabalhos (Essa Voz)", "Lilia", "A Chamada", "Era Rei E Sou Escravo",
+    ["Maria Maria", "Cozinha", "Pilar (do Pila)", "Trabalhos (Essa Voz)", "Lilia", "A Chamada", "Era Rei E Sou Escravo",
     "Os Escravos De Jo", "Tema Dos Deuses", "Santos Catolicos x Candomble", "Pai Grande", "Seducao", "Francisco",
-    "Maria Solidaria", "De Repente Maria Sumiu", "Eu Sou Uma Preta Velha Aqui Sentada", "Boca A Boca",
+    "Maria Solidaria", "De Repente Maria Sumiu", "Eu Sou Uma Preta Velha Aqui Sentada", "Boca A Boca"],
 
-    "Terra promessa", "Una storia importante", "Adesso tu", "Ma che bello questo amore", "Musica è",
+    ["Terra promessa", "Una storia importante", "Adesso tu", "Ma che bello questo amore", "Musica è",
     "Occhi di speranza", "Più bella cosa", "Memorie", "Cose della vita", "L'aurora", "Ancora un minuto di sole",
     "Quasi amore", "Se bastasse una canzone", "Un'altra te", "Favola", "Quanto amore sei",
 
@@ -35,12 +35,12 @@ titulos = [
     "Mutter", "Pussy", "Rosenrot", "Haifisch", "Amerika", "Sonne", "Ohne dich", "Mein Land",
 
     "Marysia", "Rodzanice", "Pocałunek", "Alhambra", "Lazare", "Buba", "Gdy Rozum Śpi", "Aziareczka",
-    "Pani Pana", "Miesiac", "Sargon", "Sokol mi leta vysoko", "Rosa", "Wóda Zryje Banie",
+    "Pani Pana", "Miesiac", "Sargon", "Sokol mi leta vysoko", "Rosa", "Wóda Zryje Banie"],
     ]  # Rellenar con muuuuchos titulos random :)
 
 
-def titulo_random():
-    return random.choice(titulos)
+def titulo_random(idioma):
+    return random.choice(titulos[idioma])
 
 
 def genero_random():
@@ -53,13 +53,13 @@ def idioma_random():
 
 def generar_csv(n):
     filename = "musica.csv"
-    file = open(filename, "wt")
+    file = open(filename, "wt", encoding="utf8")
     file.write("Título, Género, Idioma\n")
     for i in range(n):
-        titulo = titulo_random()
         genero = genero_random()
         idioma = idioma_random()
-        file.write("{}, {}, {}\n".format(titulo, genero, idioma))
+        titulo = titulo_random(idioma)
+        file.write("{}; {}; {}\n".format(titulo, genero, idioma))
     file.close()
 
 

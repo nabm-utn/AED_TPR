@@ -1,5 +1,10 @@
+from logic import generar_y_mostrar_vector
+
+
 def menu_de_opciones():
     opcion = None
+    vector = []
+    matriz = []
     menu = """
 -----------------------------------------------------
 Menú de opciones 
@@ -16,7 +21,8 @@ Menú de opciones
         print(menu)
         opcion = input('Ingrese opción: ')
         if opcion == "1":
-            pass
+            generar_y_mostrar_vector(vector)
+            input("...")
         elif opcion == "2":
             pass
         elif opcion == "3":

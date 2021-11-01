@@ -51,12 +51,17 @@ def idioma_random():
     return random.randint(0, 4)
 
 
-def generar_csv(n=100):
+def generar_csv(n):
     filename = "musica.csv"
-    file = open(filename, "w")
+    file = open(filename, "wt")
     file.write("Título, Género, Idioma\n")
     for i in range(n):
         titulo = titulo_random()
         genero = genero_random()
         idioma = idioma_random()
         file.write("{}, {}, {}\n".format(titulo, genero, idioma))
+    file.close()
+
+
+if __name__ == "__main__":
+    generar_csv(100)

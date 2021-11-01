@@ -4,13 +4,13 @@ def menu_de_opciones():
 -----------------------------------------------------
 Menú de opciones 
 -----------------------------------------------------
-1 - Opcion 1
-2 - Opcion 2
-3 - Opcion 3
-4 - Opcion 4
-5 - Opcion 5
-6 - Opcion 6
-7 - Opcion 7
+1 - Generar y Mostrar Vector
+2 - Mostrar N canciones del idioma I
+3 - Cantidad de canciones según género e idioma
+4 - Cantidad de canciones del género G
+5 - Buscar canción por título
+6 - Generar archivo de música según idioma
+7 - Cargar archivo de música según idioma
 8 - Finalizar programa"""
     while opcion != "8":
         print(menu)
